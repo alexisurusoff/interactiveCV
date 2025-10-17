@@ -27,6 +27,7 @@ const Portfolio = () => {
   const [language, setLanguage] = useState('en');
   const [activeSection, setActiveSection] = useState('about');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const data = portfolioData[language];
 
   useEffect(() => {
