@@ -416,13 +416,17 @@ const Portfolio = () => {
           </div>
 
           <Card className="bg-slate-900/50 border-slate-800 p-8">
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">
                   {data.contact.form.name}
                 </label>
                 <Input 
                   type="text" 
+                  name="name"
+                  value={formData.name}
+                  onChange={handleFormChange}
+                  required
                   className="bg-slate-950/50 border-slate-700 text-slate-100 focus:border-slate-500"
                   placeholder={data.contact.form.name}
                 />
@@ -433,6 +437,10 @@ const Portfolio = () => {
                 </label>
                 <Input 
                   type="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleFormChange}
+                  required
                   className="bg-slate-950/50 border-slate-700 text-slate-100 focus:border-slate-500"
                   placeholder={data.contact.form.email}
                 />
@@ -443,6 +451,10 @@ const Portfolio = () => {
                 </label>
                 <Textarea 
                   rows={6}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleFormChange}
+                  required
                   className="bg-slate-950/50 border-slate-700 text-slate-100 focus:border-slate-500"
                   placeholder={data.contact.form.message}
                 />
