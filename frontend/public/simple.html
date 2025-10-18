@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexis Urusoff - Creative Consultant</title>
+    <meta name="description" content="Interactive Bilingual CV - Creative Consultant with 35+ years of experience in AI research, sustainability, and educational innovation">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(to bottom right, #020617, #0f172a, #020617);
+            color: #f1f5f9;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header/Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(2, 6, 23, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #334155;
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f1f5f9;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f1f5f9;
+        }
+
+        .lang-toggle {
+            background: #1e293b;
+            color: #cbd5e1;
+            border: 1px solid #334155;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lang-toggle:hover {
+            background: #334155;
+            color: #f1f5f9;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 20px 80px;
+            text-align: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text .subtitle {
+            color: #94a3b8;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text .tagline {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 1.5rem;
+            border: 2px solid #334155;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            background: rgba(51, 65, 85, 0.5);
+            color: #cbd5e1;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            border: 1px solid #334155;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #f1f5f9;
+            color: #020617;
+        }
+
+        .btn-primary:hover {
+            background: #e2e8f0;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #cbd5e1;
+            border: 1px solid #334155;
+        }
+
+        .btn-secondary:hover {
+            background: #1e293b;
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-underline {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #64748b, #334155);
+            margin: 0 auto 3rem;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid #334155;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            border-color: #475569;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Experience */
+        .experience-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: #334155;
+        }
+
+        .experience-role {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-company {
+            color: #cbd5e1;
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-period {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-description {
+            color: #94a3b8;
+        }
+
+        .current-badge {
+            background: rgba(16, 185, 129, 0.1);
+            color: #6ee7b7;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.75rem;
+            display: inline-block;
+            margin-left: 0.5rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1rem;
+            color: #e2e8f0;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(51, 65, 85, 0.7);
+            color: #cbd5e1;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            border: 1px solid #334155;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-category {
+            background: rgba(51, 65, 85, 0.7);
+            color: #64748b;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.75rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+            border: 1px solid #334155;
+        }
+
+        .project-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-description {
+            color: #94a3b8;
+            margin-bottom: 1rem;
+        }
+
+        .project-period {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        /* Contact */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+        }
+
+        .contact-item a {
+            color: #cbd5e1;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #f1f5f9;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 20px;
+            border-top: 1px solid #334155;
+            color: #64748b;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Hidden class for language toggle */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Alexis Urusoff</div>
+            <ul class="nav-links">
+                <li><a href="#about"><span data-en="About" data-es="Sobre Mí">About</span></a></li>
+                <li><a href="#experience"><span data-en="Experience" data-es="Experiencia">Experience</span></a></li>
+                <li><a href="#skills"><span data-en="Skills" data-es="Habilidades">Skills</span></a></li>
+                <li><a href="#projects"><span data-en="Projects" data-es="Proyectos">Projects</span></a></li>
+                <li><a href="#contact"><span data-en="Contact" data-es="Contacto">Contact</span></a></li>
+            </ul>
+            <button class="lang-toggle" onclick="toggleLanguage()">
+                🌐 <span id="lang-btn">ES</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="subtitle" data-en="CREATIVE CONSULTANT" data-es="CONSULTOR CREATIVO">CREATIVE CONSULTANT</p>
+                <h1>Alexis Urusoff</h1>
+                <p class="tagline" data-en="35+ years transforming ideas into impact through creativity, innovation, and sustainable solutions" data-es="Más de 35 años transformando ideas en impacto a través de la creatividad, innovación y soluciones sostenibles">
+                    35+ years transforming ideas into impact through creativity, innovation, and sustainable solutions
+                </p>
+                <div class="badges">
+                    <span class="badge" data-en="35+ years of global experience" data-es="Más de 35 años de experiencia global">35+ years of global experience</span>
+                    <span class="badge" data-en="AI & AGI Research Pioneer" data-es="Pionero en Investigación de IA e IAG">AI & AGI Research Pioneer</span>
+                    <span class="badge" data-en="Sustainability Advocate" data-es="Defensor de la Sostenibilidad">Sustainability Advocate</span>
+                    <span class="badge" data-en="Educational Innovation Leader" data-es="Líder en Innovación Educativa">Educational Innovation Leader</span>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary" data-en="Get In Touch" data-es="Contáctame">Get In Touch</a>
+                    <a href="#experience" class="btn btn-secondary" data-en="View Experience" data-es="Ver Experiencia">View Experience</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://customer-assets.emergentagent.com/job_68859b1b-b209-4ef7-ae2e-c8b8a91f20af/artifacts/h9kav37w_alexis-octubre-2025.png" alt="Alexis Urusoff">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title" data-en="About Me" data-es="Sobre Mí">About Me</h2>
+            <div class="section-underline"></div>
+            <div class="card">
+                <p data-en="Creative and dynamic Creative Consultant with over 35 years of diverse experience in consulting, project development, training across multiple sectors, and AI / AGI research. Proven expertise in business strategy and creative direction, exemplified by co-founding innovative educational institutions and directing sustainability projects." data-es="Consultor Creativo dinámico con más de 35 años de experiencia diversa en consultoría, desarrollo de proyectos, capacitación en múltiples sectores e investigación en IA / IAG. Experiencia comprobada en estrategia empresarial y dirección creativa, ejemplificada por la co-fundación de instituciones educativas innovadoras y la dirección de proyectos de sostenibilidad.">
+                    Creative and dynamic Creative Consultant with over 35 years of diverse experience in consulting, project development, training across multiple sectors, and AI / AGI research. Proven expertise in business strategy and creative direction, exemplified by co-founding innovative educational institutions and directing sustainability projects.
+                </p>
+            </div>
+            <div class="contact-info">
+                <div class="card contact-item">
+                    <span>📍</span>
+                    <div>Córdoba, Argentina</div>
+                </div>
+                <div class="card contact-item">
+                    <span>📧</span>
+                    <a href="mailto:urusoff.alexis@gmail.com">urusoff.alexis@gmail.com</a>
+                </div>
+                <div class="card contact-item">
+                    <span>📱</span>
+                    <div>+54 351 772 4822</div>
+                </div>
+                <div class="card contact-item">
+                    <span>🔗</span>
+                    <a href="https://linkedin.com/in/elurusoff" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" style="background: rgba(0, 0, 0, 0.2);">
+        <div class="container">
+            <h2 class="section-title" data-en="Professional Experience" data-es="Experiencia Profesional">Professional Experience</h2>
+            <div class="section-underline"></div>
+
+            <div class="card experience-item">
+                <h3 class="experience-role" data-en="AI & Frequencies Research" data-es="Investigación en IA y Frecuencias">AI & Frequencies Research <span class="current-badge" data-en="Current" data-es="Actual">Current</span></h3>
+                <p class="experience-company" data-en="Dr Alexa Damiani" data-es="Dra. Alexa Damiani">Dr Alexa Damiani</p>
+                <p class="experience-period" data-en="2011 - Present • Asunción, Paraguay" data-es="2011 - Presente • Asunción, Paraguay">2011 - Present • Asunción, Paraguay</p>
+                <p class="experience-description" data-en="Engineered innovative solutions for a medical project, enhancing patient outcomes through advanced AI integration." data-es="Desarrollo de soluciones innovadoras para un proyecto médico, mejorando los resultados de los pacientes a través de la integración avanzada de IA.">
+                    Engineered innovative solutions for a medical project, enhancing patient outcomes through advanced AI integration.
+                </p>
+            </div>
+
+            <div class="card experience-item">
+                <h3 class="experience-role" data-en="Co-Founder & Facilitator" data-es="Co-Fundador y Facilitador">Co-Founder & Facilitator <span class="current-badge" data-en="Current" data-es="Actual">Current</span></h3>
+                <p class="experience-company">Avalon School Ltd</p>
+                <p class="experience-period" data-en="2012 - Present • London, UK" data-es="2012 - Presente • Londres, Reino Unido">2012 - Present • London, UK</p>
+                <p class="experience-description" data-en="Spearheaded the establishment of a sustainability nature-based school and directed dynamic creative programmes, fostering a vibrant educational environment." data-es="Lideré el establecimiento de una escuela basada en la naturaleza enfocada en sostenibilidad y dirigí programas creativos dinámicos, fomentando un entorno educativo vibrante.">
+                    Spearheaded the establishment of a sustainability nature-based school and directed dynamic creative programmes, fostering a vibrant educational environment.
+                </p>
+            </div>
+
+            <div class="card experience-item">
+                <h3 class="experience-role" data-en="Co-Founder & Creative Director" data-es="Co-Fundador y Director Creativo">Co-Founder & Creative Director <span class="current-badge" data-en="Current" data-es="Actual">Current</span></h3>
+                <p class="experience-company">Barcelonya</p>
+                <p class="experience-period" data-en="1999 - Present • Barcelona, Spain" data-es="1999 - Presente • Barcelona, España">1999 - Present • Barcelona, Spain</p>
+                <p class="experience-description" data-en="Directed cutting-edge design and consulting initiatives in sustainability projects to advocate for eco-friendly practices." data-es="Dirigí iniciativas de diseño y consultoría de vanguardia en proyectos de sostenibilidad para promover prácticas ecológicas.">
+                    Directed cutting-edge design and consulting initiatives in sustainability projects to advocate for eco-friendly practices.
+                </p>
+            </div>
+
+            <div class="card experience-item">
+                <h3 class="experience-role" data-en="Associate Consultant" data-es="Consultor Asociado">Associate Consultant</h3>
+                <p class="experience-company">Zinkia Entertainment - Proyecto 360</p>
+                <p class="experience-period" data-en="2002 - 2010 • Madrid, Spain" data-es="2002 - 2010 • Madrid, España">2002 - 2010 • Madrid, Spain</p>
+                <p class="experience-description" data-en="Conceived, created, developed and managed groundbreaking audiovisual production projects—well before YouTube existed. Led teams across 17 countries." data-es="Concebí, creé, desarrollé y gestioné proyectos audiovisuales innovadores—mucho antes de que existiera YouTube. Lideré equipos en 17 países.">
+                    Conceived, created, developed and managed groundbreaking audiovisual production projects—well before YouTube existed. Led teams across 17 countries.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title" data-en="Expertise & Skills" data-es="Experticia y Habilidades">Expertise & Skills</h2>
+            <div class="section-underline"></div>
+            <div class="skills-grid">
+                <div class="card skill-category">
+                    <h3 data-en="Creative & Design" data-es="Creatividad y Diseño">Creative & Design</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-en="Graphic Design" data-es="Diseño Gráfico">Graphic Design</span>
+                        <span class="skill-tag" data-en="Audio & Visual Development" data-es="Desarrollo Audio y Visual">Audio & Visual Development</span>
+                        <span class="skill-tag" data-en="Creative Concept Development" data-es="Desarrollo de Conceptos Creativos">Creative Concept Development</span>
+                        <span class="skill-tag" data-en="Creativity" data-es="Creatividad">Creativity</span>
+                    </div>
+                </div>
+                <div class="card skill-category">
+                    <h3 data-en="Technology & Digital" data-es="Tecnología y Digital">Technology & Digital</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-en="Web Development" data-es="Desarrollo Web">Web Development</span>
+                        <span class="skill-tag" data-en="Social Media Management" data-es="Gestión de Redes Sociales">Social Media Management</span>
+                        <span class="skill-tag" data-en="AI & AGI Research" data-es="Investigación en IA e IAG">AI & AGI Research</span>
+                        <span class="skill-tag" data-en="Data Analysis" data-es="Análisis de Datos">Data Analysis</span>
+                    </div>
+                </div>
+                <div class="card skill-category">
+                    <h3 data-en="Strategy & Business" data-es="Estrategia y Negocios">Strategy & Business</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-en="Marketing Strategy" data-es="Estrategia de Marketing">Marketing Strategy</span>
+                        <span class="skill-tag" data-en="User Behavior Analysis" data-es="Análisis de Comportamiento del Usuario">User Behavior Analysis</span>
+                        <span class="skill-tag" data-en="International Business Development" data-es="Desarrollo Empresarial Internacional">International Business Development</span>
+                        <span class="skill-tag" data-en="Strategic Planning" data-es="Planificación Estratégica">Strategic Planning</span>
+                    </div>
+                </div>
+                <div class="card skill-category">
+                    <h3 data-en="Leadership & Facilitation" data-es="Liderazgo y Facilitación">Leadership & Facilitation</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-en="Communication Facilitation" data-es="Facilitación de Comunicación">Communication Facilitation</span>
+                        <span class="skill-tag" data-en="Empathy Leadership" data-es="Liderazgo Empático">Empathy Leadership</span>
+                        <span class="skill-tag" data-en="Crisis Management" data-es="Gestión de Crisis">Crisis Management</span>
+                        <span class="skill-tag" data-en="Training & Coaching" data-es="Capacitación y Coaching">Training & Coaching</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" style="background: rgba(0, 0, 0, 0.2);">
+        <div class="container">
+            <h2 class="section-title" data-en="Featured Projects" data-es="Proyectos Destacados">Featured Projects</h2>
+            <div class="section-underline"></div>
+            <div class="projects-grid">
+                <div class="card">
+                    <span class="project-category" data-en="Technology & Healthcare" data-es="Tecnología y Salud">Technology & Healthcare</span>
+                    <h3 class="project-name" data-en="AI Medical Integration" data-es="Integración de IA Médica">AI Medical Integration</h3>
+                    <p class="project-description" data-en="Pioneering AI solutions for enhanced patient outcomes in medical applications." data-es="Soluciones pioneras de IA para mejorar los resultados de los pacientes en aplicaciones médicas.">
+                        Pioneering AI solutions for enhanced patient outcomes in medical applications.
+                    </p>
+                    <p class="project-period" data-en="2011 - Present" data-es="2011 - Presente">2011 - Present</p>
+                </div>
+
+                <div class="card">
+                    <span class="project-category" data-en="Education & Sustainability" data-es="Educación y Sostenibilidad">Education & Sustainability</span>
+                    <h3 class="project-name" data-en="Avalon School Establishment" data-es="Establecimiento de Avalon School">Avalon School Establishment</h3>
+                    <p class="project-description" data-en="Co-founded and developed a sustainability-focused nature-based educational institution with international partnerships." data-es="Co-fundé y desarrollé una institución educativa basada en la naturaleza con enfoque en sostenibilidad y alianzas internacionales.">
+                        Co-founded and developed a sustainability-focused nature-based educational institution with international partnerships.
+                    </p>
+                    <p class="project-period" data-en="2012 - Present" data-es="2012 - Presente">2012 - Present</p>
+                </div>
+
+                <div class="card">
+                    <span class="project-category" data-en="Media & Entertainment" data-es="Medios y Entretenimiento">Media & Entertainment</span>
+                    <h3 class="project-name" data-en="Global Audiovisual Storytelling" data-es="Narrativa Audiovisual Global">Global Audiovisual Storytelling</h3>
+                    <p class="project-description" data-en="Created groundbreaking audiovisual content before YouTube, leading teams across 17 countries to build direct user relationships." data-es="Creé contenido audiovisual innovador antes de YouTube, liderando equipos en 17 países para construir relaciones directas con usuarios.">
+                        Created groundbreaking audiovisual content before YouTube, leading teams across 17 countries to build direct user relationships.
+                    </p>
+                    <p class="project-period">2002 - 2010</p>
+                </div>
+
+                <div class="card">
+                    <span class="project-category" data-en="Business & Technology" data-es="Negocios y Tecnología">Business & Technology</span>
+                    <h3 class="project-name" data-en="Teknoland Latin America Expansion" data-es="Expansión Teknoland América Latina">Teknoland Latin America Expansion</h3>
+                    <p class="project-description" data-en="Successfully launched and managed IT company offices across Buenos Aires, Santiago, São Paulo, and Montevideo." data-es="Lancé y gestioné exitosamente oficinas de empresa de TI en Buenos Aires, Santiago, São Paulo y Montevideo.">
+                        Successfully launched and managed IT company offices across Buenos Aires, Santiago, São Paulo, and Montevideo.
+                    </p>
+                    <p class="project-period">1996 - 2001</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title" data-en="Get In Touch" data-es="Contáctame">Get In Touch</h2>
+            <div class="section-underline"></div>
+            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <p style="font-size: 1.25rem; color: #94a3b8; margin-bottom: 2rem;" data-en="Let's collaborate on your next creative project" data-es="Colaboremos en tu próximo proyecto creativo">
+                    Let's collaborate on your next creative project
+                </p>
+                <a href="mailto:urusoff.alexis@gmail.com?subject=Portfolio Contact" class="btn btn-primary" data-en="Send Email" data-es="Enviar Correo">Send Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Alexis Urusoff. <span data-en="All rights reserved." data-es="Todos los derechos reservados.">All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <script>
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            document.getElementById('lang-btn').textContent = currentLang === 'en' ? 'ES' : 'EN';
+            
+            // Update all elements with data-en and data-es attributes
+            const elements = document.querySelectorAll('[data-en][data-es]');
+            elements.forEach(el => {
+                el.textContent = el.getAttribute('data-' + currentLang);
+            });
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
